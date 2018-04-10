@@ -9,7 +9,7 @@
   <link href="./css/main.css" rel="stylesheet" />
 </head>
 
-<body ng-app="app1">
+<body ng-app="app1" class="uk-background-muted" ng-init="{loadingcomments: 1}">
 
   <nav id="navb" class="uk-navbar-container uk-margin ;cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar" uk-navbar>
     <div class="uk-navbar-center">
@@ -22,7 +22,7 @@
   <div class="uk-container">
     <div ng-controller="storiesController">
 
-      <div class="uk-card uk-card-default uk-card-body uk-margin uk-animation-slide-bottom-medium" ng-repeat="m in stories">
+      <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin uk-animation-slide-bottom-medium" ng-repeat="m in stories">
         <a href="{{m.url}}" target="_blank"><h3>{{m.title}}</h3></a> <span >
           {{m.score}}</span> Points &nbsp; &nbsp;<span uk-icon="icon: user; ratio: 1"></span> <span >{{m.by}}</span> &nbsp; &nbsp;
           <span uk-icon="icon: clock; ratio: 1"></span>
@@ -31,15 +31,18 @@
           <button class="uk-button uk-button-text" uk-toggle="target: #comment-box" ng-click="showComments()"><!--Comments:--> {{m.descendants}}</button>
       </div>
       <div uk-spinner id="spinner" class="uk-text-center uk-flex uk-flex-center"></div>
-
+      <div class="uk-text-center uk-margin">
+        <button class="uk-button uk-button-default" ng-click="loadMore()">Load More</button>
+      </div>
       <div id="comment-box" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-width-2-3">
           <h2 class="uk-text-center ">Comments</h2>
           <div ng-repeat="m in comments">
             <div ng-bind-html="m.text | unsafe"></div>
+            <h6 class="uk-text-right uk-margin-remove">- {{m.by}}</h6>
             <hr>
           </div>
-          <div uk-spinner id="spinner" class="uk-text-center uk-flex uk-flex-center"></div>
+          <div uk-spinner ng-if="loadingcomments" id="spinner" class="uk-text-center uk-flex uk-flex-center"></div>
         </div>
 
       </div>

@@ -1,3 +1,12 @@
 #navb{
   background-color: #000000;
 }
+
+a:hover {
+  text-decoration: none;
+}
+
+a:hover > h3 {
+  color: #555!important;
+  transition: all 0.1s ease;
+}
