@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.min.css" />
+    <link href="./css/main.css" rel="stylesheet"/>
+  </head>
+
+  <body ng-app="app1">
+
+    <nav  id="navb" class="uk-navbar-container uk-margin ;cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar" uk-navbar>
+        <div class="uk-navbar-left">
+
+            <a class="uk-navbar-item uk-logo" href="#"><img src="y18.gif">Hacker News</a>
+</div>
+
+            <div id="item" class="uk-navbar-item uk-navbar-right">
+
+
+                   <a href="#">Comments</a>
+
+
+
+
+            </div>
+
+
+
+
+    </nav>
+
+    <div ng-controller="storiesController">
+
+      <div ng-repeat="m in stories" class="uk-animation-slide-bottom-medium">
+        <a href="{{m.url}}" target="_blank"><h3>{{m.title}}</h3></a>
+        Author: <span>{{m.by}}</span> | <span ng-click="comments({{m.kids}})">Comments</span>
+      </div>
+      <div uk-spinner id="spinner"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+    // UIkit.navbar('#navb');
+    </script>
+
+  </body>
+
+</html>
