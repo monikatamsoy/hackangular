@@ -28,15 +28,15 @@
           {{m.score}}</span> Points &nbsp; &nbsp;<span uk-icon="icon: user; ratio: 1"></span> <span >{{m.by}}</span> &nbsp; &nbsp;
           <span uk-icon="icon: clock; ratio: 1"></span>
           <span class="uk-text-medium">{{ m.time | timeAgo}}</span> &nbsp; &nbsp;
-          <span uk-icon="icon: comments; ratio: 1"></span>
-          <button class="uk-button uk-button-text" uk-toggle="target: #comment-box" ng-click="showComments()"><!--Comments:--> {{m.descendants}}</button>
+
+          <button class="uk-button uk-button-text" uk-toggle="target: #comment-box" ng-click="showComments()"><span uk-icon="icon: comments; ratio: 1"></span> {{m.descendants}}</button>
       </div>
       <div uk-spinner id="spinner" class="uk-text-center uk-flex uk-flex-center"></div>
       <div class="uk-text-center uk-margin">
         <button class="uk-button uk-button-default" ng-click="loadMore()">Load More</button>
       </div>
       <div id="comment-box" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body uk-width-2-3">
+        <div class="uk-modal-dialog uk-modal-body uk-width-2-3@s uk-width-1-1">
           <h2 class="uk-text-center ">Comments</h2>
           <div ng-repeat="m in comments">
             <div ng-bind-html="m.text | unsafe"></div>
