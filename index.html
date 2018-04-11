@@ -37,6 +37,7 @@
       </div>
       <div id="comment-box" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-width-2-3@s uk-width-1-1">
+          <button class="uk-modal-close-default" type="button" uk-close></button>
           <h2 class="uk-text-center ">Comments</h2>
           <div ng-repeat="m in comments">
             <div ng-bind-html="m.text | unsafe"></div>
